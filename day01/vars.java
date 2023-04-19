@@ -17,5 +17,7 @@ public class vars {
       String s;
       s = "Hi java";
       System.out.println(s);
+      // 使用变量之前，必须要给变量赋值，将这个操作称之为变量的初始化
+      
    }
 }
