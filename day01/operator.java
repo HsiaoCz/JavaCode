@@ -19,5 +19,16 @@ public class operator {
         byte b3 = (byte) (b1 + b2);
         System.out.println(b3);
         // 一元运算符，一个元素参与运算的运算符
+        // ++ --
+        // ++ 放在后面先运算后自增
+        // 放在前面是先自增后运算
+        int i = 1;
+        int j = 2;
+        int m = j + i++;
+        System.out.println(m);
+        System.out.println(i);
+        int s = j + ++i;
+        System.out.println(s);
+        System.out.println(i);
     }
 }
