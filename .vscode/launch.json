@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "object_02",
+            "request": "launch",
+            "mainClass": "day03.object_02",
+            "projectName": "JavaCode_54c39caf"
+        },
+        {
+            "type": "java",
             "name": "operator",
             "request": "launch",
             "mainClass": "day01.operator",
