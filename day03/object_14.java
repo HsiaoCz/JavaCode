@@ -11,7 +11,7 @@ public class object_14 {
     }
 }
 
-class Parent {
+class Parent03 {
     String name = "lis";
 
     void test() {
@@ -19,7 +19,7 @@ class Parent {
     }
 }
 
-class Child extends Parent {
+class Child extends Parent03 {
     String name = "wangwu";
 
     void test() {
