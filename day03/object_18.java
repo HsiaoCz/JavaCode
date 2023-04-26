@@ -17,11 +17,13 @@ public class object_18 {
 
 class User15 {
     User15() {
+        this("zhsngan");
         System.out.println("nothing....");
     }
 
     User15(String name) {
-        System.out.println(name);
+        this(name, "nan");
+        System.out.println("name....");
     }
 
     User15(String name, String sex) {
