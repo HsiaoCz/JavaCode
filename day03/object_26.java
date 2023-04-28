@@ -8,8 +8,8 @@ public class object_26 {
 
         // 内部类就当成外部类的属性使用即可
         // 它需要将外部类创建出来再使用
-        OuterClass outerClass=new OuterClass();
-        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
+        OuterClass outerClass = new OuterClass();
+        OuterClass.InnerClass innerClass = outerClass.new InnerClass();
     }
 
     class InnerClass {
