@@ -10,15 +10,12 @@ public class object_26 {
         // 它需要将外部类创建出来再使用
         OuterClass outerClass = new OuterClass();
         OuterClass.InnerClass innerClass = outerClass.new InnerClass();
-    }
-
-    class InnerClass {
-
+        System.out.println(innerClass);
     }
 }
 
 class OuterClass {
-    public static class InnerClass {
+    public class InnerClass {
 
     }
 }

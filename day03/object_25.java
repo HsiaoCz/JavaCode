@@ -7,11 +7,12 @@ public class object_25 {
         // 访问谁的？java.lang.Object
 
         Person25 person25 = new Person25();
+        System.out.println(person25);
     }
 }
 
 class Person25 {
-   void test() throws Exception{
-      clone()
-   }
+    void test() throws Exception {
+        clone();
+    }
 }
