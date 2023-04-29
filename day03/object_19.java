@@ -1,6 +1,6 @@
 package day03;
 
-public class objetc_19 {
+public class object_19 {
     public static void main(String[] args) {
         int i = 10;
         test(i);

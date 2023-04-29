@@ -10,10 +10,10 @@ public class object_27 {
 
         User27 instance1 = User27.getInstance();
         User27 instance2 = User27.getInstance();
-        User27 instance3 = User27.getInstance();
-        User27 instance4 = User27.getInstance();
-        User27 instance5 = User27.getInstance();
-        User27 instance6 = User27.getInstance();
+        // User27 instance3 = User27.getInstance();
+        // User27 instance4 = User27.getInstance();
+        // User27 instance5 = User27.getInstance();
+        // User27 instance6 = User27.getInstance();
         User27 instance7 = User27.getInstance();
 
         System.out.println(instance1 == instance2);

@@ -1,6 +1,6 @@
 package day03;
 
-public class objetc_22 {
+public class object_22 {
     public static void main(String[] args) {
         // 方法的重写
         CCC cc = new CCC();
