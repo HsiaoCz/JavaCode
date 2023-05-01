@@ -6,7 +6,7 @@ public class object_14 {
         // 如果父类和子类含有相同的属性，可以使用两个关键字进行区分
         // super和this (super父级属性,this当前属性)
         // 两个关键字都表示对象，在静态代码块中不能使用
-        Child c = new Child();
+        Child14 c = new Child14();
         System.out.println(c.name);
     }
 }
@@ -19,7 +19,7 @@ class Parent03 {
     }
 }
 
-class Child extends Parent03 {
+class Child14 extends Parent03 {
     String name = "wangwu";
 
     void test() {
