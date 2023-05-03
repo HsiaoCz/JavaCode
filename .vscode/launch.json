@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "normal_03",
+            "request": "launch",
+            "mainClass": "day04.normal_03",
+            "projectName": "JavaCode_54c39caf"
+        },
+        {
+            "type": "java",
             "name": "object_30",
             "request": "launch",
             "mainClass": "day03.object_30",
