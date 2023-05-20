@@ -15,6 +15,7 @@ public class set_18_util {
         // 排序
         Arrays.sort(is);
         System.out.println(Arrays.toString(is));
+        System.out.println(lis);
 
         // 二分查找法，排序后的数组
         System.out.println(Arrays.binarySearch(is, 5));
