@@ -1,7 +1,5 @@
 package day09;
 
-import day01.vars;
-
 public class thread_06 {
     public static void main(String[] args) {
         // 线程 运行
