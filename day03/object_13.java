@@ -10,14 +10,18 @@ public class object_13 {
         Child c = new Child();
         c.test();
         System.out.println(c.name);
+        System.out.println(Parent.age);
     }
 }
 
 class Parent {
     String name = "zhangsan";
+    static int age = 12;
+    private boolean b = false;
 
     void test() {
         System.out.println("test");
+        System.out.println(b);
     }
 }
 
