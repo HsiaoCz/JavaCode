@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "compare",
+      "request": "launch",
+      "mainClass": "day05.compare",
+      "projectName": "JavaCode_268538a2"
+    },
+    {
+      "type": "java",
       "name": "object_09",
       "request": "launch",
       "mainClass": "day03.object_09",
