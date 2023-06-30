@@ -27,6 +27,8 @@ public class error_02 {
             j = 10;
         } finally {
             System.out.println("最终执行的代码.....");
+            System.out.println(i);
+            System.out.println(j);
         }
     }
 }
