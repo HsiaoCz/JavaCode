@@ -9,18 +9,25 @@
 
 如何获取类的信息，并且操作他们
 
-1、加载类，获取类的字节码:Class对象
+1、加载类，获取类的字节码:Class 对象
 
-2、获取类的构造器:Constructor对象
+2、获取类的构造器:Constructor 对象
 
-3、获取类的成员变量:Field对象
+3、获取类的成员变量:Field 对象
 
-4、获取类的成员方法:Method对象
+4、获取类的成员方法:Method 对象
 
-### 1、获取Class对象的三种方式
+### 1、获取 Class 对象的三种方式
 
 - Class cl=类名.class
 
-- 调用Class提供方法:public static Class ForName(String package);
+- 调用 Class 提供方法:public static Class ForName(String package);
 
-- Object提供的方法:Public Class getClass(); Calss c3=对象.getClass();
+- Object 提供的方法:Public Class getClass(); Calss c3=对象.getClass();
+
+### 2、如何获取类中的构造器
+
+1、Constructor<?>[] getConstructors() 获取全部构造器(只能获取 public 修饰的)
+2、Constructor<?>[] getDeclasredConstructors() 获取全部构造器(只要存在就能拿到)
+3、Constructor<T> getConstructor(Class<?>...parameterTypes) 获取某个构造器(只能获取 public 修饰的)
+4、Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes) 获取某个构造器(只要存在就能拿到)
