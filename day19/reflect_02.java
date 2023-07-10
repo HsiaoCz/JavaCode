@@ -1,9 +1,11 @@
 package day19;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class reflect_02 {
-    public static void main(String[] args) throws NoSuchMethodException, SecurityException {
+    public static void main(String[] args) throws NoSuchMethodException, SecurityException, InstantiationException,
+            IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         // 获取类的构造器
         // 反射第一步，得到类的Class对象
         Class<?> c1 = Cat.class;
@@ -28,12 +30,17 @@ public class reflect_02 {
         // 获取构造器 只能获取public
         // 这是获取没有参数的
         Constructor cst = c1.getConstructor();
+        cst.setAccessible(true); // 禁止检查访问权限
+        Cat c = (Cat) cst.newInstance();
+        System.out.println(c);
         System.out.println(cst.getName());
         System.out.println(cst);
 
         // 获取构造器，只要有就能获取
         // 获取有参数的
         Constructor csss = c1.getDeclaredConstructor(String.class, int.class);
+        Cat cc1 = (Cat) csss.newInstance("zhangsan", 12);
+        System.out.println(cc1);
         System.out.println(csss);
     }
 }
@@ -43,7 +50,7 @@ class Cat {
     private int age;
 
     public Cat() {
-
+        System.out.println("无参数构造器执行了");
     }
 
     public Cat(String name, int age) {
