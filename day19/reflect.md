@@ -70,3 +70,19 @@ Method getDeclaredMethod(String name,Class<?>...paramterTypes)获取类的成员
 
 public Object invoke(Object obj,Object... args) 触发某个对象的该方法执行
 public void setAccessible(boolean flag) 设置为 true 表示禁止检查访问权限
+
+### 5、反射的作用
+
+- 基本作用：可以得到一个类的全部成分然后操作
+- 可以破坏封装性
+- 最重要的用途是：适合做框架
+
+使用反射做一个简易版的框架
+
+- 对于任意一个对象，该框架都可以把对象的字段名和对应的值，保存到文件中
+
+实现步骤：
+- 定义一个方法，可以接收任意对象
+- 每收到一个对象后，使用反射获取对象的Class对象，然后获取全部的成员变量
+- 遍历成员遍历，然后提取成员变量在该对象中的具体值
+- 把成员变量名，和其值，写到文件中去

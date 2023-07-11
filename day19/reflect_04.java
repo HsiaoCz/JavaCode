@@ -19,17 +19,21 @@ public class reflect_04 {
         }
         // 获取某个方法对象
         // 拿到无参的方法
-        Method m = c.getDeclaredMethod("eat");
+        Method m = c.getDeclaredMethod("Eat");
         System.out.println(m.getName());
 
         // 拿到有参数的方法
-        Method mm = c.getDeclaredMethod("eat", String.class);
+        Method mm = c.getDeclaredMethod("Eat", String.class);
         System.out.println(mm.getName());
 
         Cat ccc = new Cat("zhangsan", 12);
         mm.setAccessible(true); // 禁止检查访问权限
         Object rs = mm.invoke(ccc, "hellokitty");
         System.out.println(rs.getClass());
+
+        Method eat = c.getDeclaredMethod("eat", String.class);
+        String sssss = (String) eat.invoke(ccc, "hellokitty");
+        System.out.println(sssss);
     }
 }
 
@@ -56,6 +60,10 @@ class Cat {
 
     public void Eat(String name) {
         System.out.println("猫在吃:" + name);
+    }
+
+    public String eat(String name) {
+        return "hello";
     }
 
     public String getName() {
