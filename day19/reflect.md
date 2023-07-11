@@ -45,16 +45,28 @@ Constructor 提供的初始化对象返回的方法
 
 ### 3、反射获取类的成员变量
 
-- public Field[] getFields()  获取类的全部成员变量(只有public修饰的)
+- public Field[] getFields() 获取类的全部成员变量(只有 public 修饰的)
 
 - public Field[] getDeclaredFields() 获取类的全部成员变量(只要存在就能拿到)
 
-- public Field getField(String name) 获取类的某个成员变量(只能获取public修饰的)
+- public Field getField(String name) 获取类的某个成员变量(只能获取 public 修饰的)
 
 - public Field getDeclaredField(String name) 获取类的某个成员变量(只要存在就能拿到)
 
 获取到成员变量之后对成员变量进行赋值和取值
 
 - void set(Object obj,Object value) 赋值
-- Object get(Object obj)  取值
-- public void setAccessible(boolean flag) 设置为true，表示禁止检查访问控制
+- Object get(Object obj) 取值
+- public void setAccessible(boolean flag) 设置为 true，表示禁止检查访问控制
+
+### 4、反射获取类中的成员方法
+
+Method[] getMethods() 获取类的全部成员方法(只能获取 oublic 修饰的)
+Method[] getDeclaredMethods() 获取类的全部成员方法(只要存在就能获取)
+Method getMethod(String name,Class<?>... paramterTypes) 获取类的某个成员方法(只能获取 public 修饰的)
+Method getDeclaredMethod(String name,Class<?>...paramterTypes)获取类的成员方法 都能获取
+
+获取成员方法之后，执行方法
+
+public Object invoke(Object obj,Object... args) 触发某个对象的该方法执行
+public void setAccessible(boolean flag) 设置为 true 表示禁止检查访问权限
