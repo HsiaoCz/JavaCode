@@ -141,3 +141,26 @@ public @interface 注解名称{
 
 3、RUNTIME(开发常用) 一直保留到运行阶段
 ```
+
+### 2.3、注解的解析
+
+什么是注解的解析?
+
+- 就是判断类上，方法上、成员变量上是否存在注解，并把注解里的内容给解析出来
+
+如何解析注解
+
+- 指导思想：要解析谁上面的注解，就应该先拿到谁
+- 比如要解析类上面的注解，则应该先获取类的 Class 对象，再通过 Class 对象解析其上面的注解
+- 比如要解析成员方法上的注解，则应该获取到成员方法的 Method 对象，再通过 Method 对象解析其上面的注解
+- Class、Method、Field、Constructor、都实现了AnnotatedElement接口，他们都拥有解析注解的能力
+
+```java
+// 注解解析方法
+
+public Annotation[] getDeclaredAnnotations()  获取当前对象上面的注解
+
+public T getDeclaredAnnotation(Class<T> annotationClass) 获取指定的注解对象
+
+public boolean isAnnotationPresent(Class<Annotation> annotationClass) 判断当前对象上是否有某个注解
+```
