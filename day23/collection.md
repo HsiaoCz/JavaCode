@@ -33,3 +33,55 @@ Vector 是线程安全的，像 get、set、add 这些方法都加了 synchroniz
 **Stack**
 
 Stack 是 Vector 的一个子类，本质上也是由动态数组实现的，只不过还实现了先进后出的功能（在 get、set、add 方法的基础上追加了 pop「返回并移除栈顶的元素」、peek「只返回栈顶元素」等方法），所以叫栈。
+
+### 2、set
+
+Set 的特点是存取无序，不可以存放重复的元素，不可以用下标对元素进行操作，和 List 有很多不同
+
+**HashSet**
+
+HashSet 其实是由 HashMap 实现的，只不过值由一个固定的 Object 对象填充，而键用于操作
+
+实际开发中，HashSet 并不常用，比如，如果我们需要按照顺序存储一组元素，那么 ArrayList 和 LinkedList 可能更适合；如果我们需要存储键值对并根据键进行查找，那么 HashMap 可能更适合。
+
+当然，在某些情况下，HashSet 仍然是最好的选择。例如，当我们需要快速查找一个元素是否存在于某个集合中，并且我们不需要对元素进行排序时，HashSet 可以提供高效的性能。
+
+**LinkedHashSet**
+
+LinkedHashSet 虽然继承自 HashSet，其实是由 LinkedHashMap 实现的
+LinkedHashSet 是一种基于哈希表实现的 Set 接口，它继承自 HashSet，并且使用链表维护了元素的插入顺序。因此，它既具有 HashSet 的快速查找、插入和删除操作的优点，又可以维护元素的插入顺序
+
+**TreeSet**
+
+TreeSet 是由 TreeMap（后面会讲） 实现的，只不过同样操作的键位，值由一个固定的 Object 对象填充
+
+TreeSet 是一种基于红黑树实现的有序集合，它实现了 SortedSet 接口，可以自动对集合中的元素进行排序。按照键的自然顺序或指定的比较器顺序进行排序
+
+```java
+// 创建一个 TreeSet 对象
+TreeSet<String> set = new TreeSet<>();
+
+// 添加元素
+set.add("沉默");
+set.add("王二");
+set.add("陈清扬");
+System.out.println(set); // 输出 [沉默, 王二, 陈清扬]
+
+// 删除元素
+set.remove("王二");
+System.out.println(set); // 输出 [沉默, 陈清扬]
+
+// 修改元素：TreeSet 中的元素不支持直接修改，需要先删除再添加
+set.remove("陈清扬");
+set.add("陈青阳");
+System.out.println(set); // 输出 [沉默, 陈青阳]
+
+// 查找元素
+System.out.println(set.contains("沉默")); // 输出 true
+System.out.println(set.contains("王二")); // 输出 false
+```
+
+需要注意的是，TreeSet 不允许插入 null 元素，否则会抛出 NullPointerException 异常
+
+集合的底层都是由 Map 实现的，为什么要用 map 呢?
+因为 map 的键不允许重复，且无序
