@@ -252,3 +252,85 @@ public class PriorityQueueComparatorExample {
     }
 }
 ```
+
+### 4、Map
+
+Map 保存的是键值对，键要求保持唯一性，值可以重复
+
+**HashMap**
+
+HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。后面会详细聊到。
+
+- HashMap 中的键和值都可以为 null。如果键为 null，则将该键映射到哈希表的第一个位置。
+- 可以使用迭代器或者 forEach 方法遍历 HashMap 中的键值对。
+- HashMap 有一个初始容量和一个负载因子。初始容量是指哈希表的初始大小，负载因子是指哈希表在扩容之前可以存储的键值对数量与哈希表大小的比率。默认的初始容量是 16，负载因子是 0.75。
+
+**LinkedHashMap**
+
+HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的 Map，就要用到 LinkedHashMap。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
+
+LinkedHashMap 可以看作是 HashMap + LinkedList 的合体，它使用了哈希表来存储数据，又用了双向链表来维持顺序。
+
+```java
+// 创建一个 LinkedHashMap，插入的键值对为 沉默 王二 陈清扬
+LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
+linkedHashMap.put("沉默", "cenzhong");
+linkedHashMap.put("王二", "wanger");
+linkedHashMap.put("陈清扬", "chenqingyang");
+
+// 遍历 LinkedHashMap
+for (String key : linkedHashMap.keySet()) {
+    String value = linkedHashMap.get(key);
+    System.out.println(key + " 对应的值为：" + value);
+}
+```
+
+**TreeMap**
+
+TreeMap 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
+
+```java
+
+// 创建一个 TreeMap 对象
+Map<String, String> treeMap = new TreeMap<>();
+
+// 向 TreeMap 中添加键值对
+treeMap.put("沉默", "cenzhong");
+treeMap.put("王二", "wanger");
+treeMap.put("陈清扬", "chenqingyang");
+
+// 查找键值对
+String name = "沉默";
+if (treeMap.containsKey(name)) {
+    System.out.println("找到了 " + name + ": " + treeMap.get(name));
+} else {
+    System.out.println("没有找到 " + name);
+}
+
+// 修改键值对
+name = "王二";
+if (treeMap.containsKey(name)) {
+    System.out.println("修改前的 " + name + ": " + treeMap.get(name));
+    treeMap.put(name, "newWanger");
+    System.out.println("修改后的 " + name + ": " + treeMap.get(name));
+} else {
+    System.out.println("没有找到 " + name);
+}
+
+// 删除键值对
+name = "陈清扬";
+if (treeMap.containsKey(name)) {
+    System.out.println("删除前的 " + name + ": " + treeMap.get(name));
+    treeMap.remove(name);
+    System.out.println("删除后的 " + name + ": " + treeMap.get(name));
+} else {
+    System.out.println("没有找到 " + name);
+}
+
+// 遍历 TreeMap
+for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+与 HashMap 不同的是，TreeMap 会按照键的顺序来进行排序
