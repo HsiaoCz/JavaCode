@@ -176,3 +176,64 @@ t1.start();
 t2.start();
 t3.start();
 ```
+
+### 3、获取 java 线程执行结果
+
+在 java 创建线程的 3 种方式中,直接继承 Thread,实现 Runable 接口，和实现 Callable 接口
+前面两种方式都有一个缺陷，在执行完任务之后无法获取执行结果。
+
+如果需要获取执行结果，就必须通过共享变量或者线程通信的方式来达到目的，这样使用起来比较麻烦
+
+Java 1.5 提供了 Callable、Future、FutureTask，它们可以在任务执行完后得到执行结果
+
+1. Callable 和 Runnable
+
+runnable 的 Run()方法的返回值为 void:
+
+```java
+public interface Runnable {
+    public abstract void run();
+}
+```
+
+所以在执行完任务之后无法返回任何结果
+
+Callable 位于 java.util.concurrent 包下，也是一个接口，它定义了一个 call() 方法：
+
+```java
+public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+
+可以看到，call() 方法返回的类型是一个 V 类型的泛型
+
+那怎么使用 Callable 呢？
+一般会配合 ExecutorService 来使用。
+ExecutorService 是一个接口，位于 java.util.concurrent 包下，它是 Java 线程池框架的核心接口，用来异步执行任务。它提供了一些关键方法用来进行线程管理。
+
+```java
+// 创建一个包含5个线程的线程池
+ExecutorService executorService = Executors.newFixedThreadPool(5);
+
+// 创建一个Callable任务
+Callable<String> task = new Callable<String>() {
+    public String call() {
+        return "Hello from " + Thread.currentThread().getName();
+    }
+};
+
+// 提交任务到ExecutorService执行，并获取Future对象
+Future[] futures = new Future[10];
+for (int i = 0; i < 10; i++) {
+    futures[i] = executorService.submit(task);
+}
+
+// 通过Future对象获取任务的结果
+for (int i = 0; i < 10; i++) {
+    System.out.println(futures[i].get());
+}
+
+// 关闭ExecutorService，不再接受新的任务，等待所有已提交的任务完成
+executorService.shutdown();
+```
