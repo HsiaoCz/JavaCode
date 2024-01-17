@@ -31,6 +31,12 @@ public class object01 {
         a2.type = "cat";
         a2.name = "小黄";
         a2.run();
+
+        User02 user002 = new User02();
+        String username = "zhangsan";
+        int userage = 12;
+        user002.sayHello(username, userage);
+
     }
 }
 
@@ -69,5 +75,46 @@ class Dog {
 
     void Wang() {
         System.out.println("小狗在汪");
+    }
+}
+
+class User01 {
+    // 方法
+    // 对象的行为和功能
+    // 声明的语法: void 方法名() {逻辑代码}
+    // void 方法的结果，表示没有结果
+    // 有返回值 需要return 返回
+
+    String account;
+    String password;
+
+    boolean register() {
+        System.out.println("用户注册");
+        // 返回结果
+        return false;
+    }
+
+    void login() {
+        System.out.println("用户登录");
+    }
+}
+
+class User02 {
+    // 使用外部数据控制方法的内部实现的操作，使用的是参数语法实现，也叫方法参数
+    // 语法：方法名(参数类型，参数名称)
+    // 小括号里的，被称为参数列表
+    // 当方法有多个参数的时候，需要注意参数的个数需要匹配
+    // 参数的类型也需要匹配
+    // 参数的传递的顺序也需要匹配
+
+    // 当参数的个数不确定时，但是类型相同时，可以采用特殊的参数语法声明，可变参数
+    // 语法格式是参数类型... 参数名
+    // 如果当前的参数列表还有其他的参数，那么可变参数应该声明在最后
+    void sayHello(String name, int age) {
+        System.out.println("Hello" + name + "," + age);
+    }
+
+    void test(String... name) {
+        System.out.println(name);
     }
 }
