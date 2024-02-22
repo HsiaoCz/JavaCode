@@ -26,5 +26,4 @@ public class object_04 {
 
 class User {
     String name;
-
 }

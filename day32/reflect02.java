@@ -28,6 +28,7 @@ public class reflect02 {
 
         // 获取构造器 只能获取public
         // 这是获取没有参数的
+        @SuppressWarnings("rawtypes")
         Constructor cst = c1.getConstructor();
         cst.setAccessible(true); // 禁止检查访问权限
         Cat c = (Cat) cst.newInstance();
@@ -37,6 +38,7 @@ public class reflect02 {
 
         // 获取构造器，只要有就能获取
         // 获取有参数的
+        @SuppressWarnings("rawtypes")
         Constructor csss = c1.getDeclaredConstructor(String.class, int.class);
         Cat cc1 = (Cat) csss.newInstance("zhangsan", 12);
         System.out.println(cc1);
